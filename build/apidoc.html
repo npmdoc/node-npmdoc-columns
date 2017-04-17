@@ -1,0 +1,3476 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/arjunmehta/node-columns"
+
+    >columns (v0.8.0)</a>
+</h1>
+<h4>Stream your text streams into streams of column streams.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.columns">module columns</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.Column">
+            function <span class="apidocSignatureSpan">columns.</span>Column
+            <span class="apidocSignatureSpan">(columns, name, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnBuffer">
+            function <span class="apidocSignatureSpan">columns.</span>ColumnBuffer
+            <span class="apidocSignatureSpan">(column)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnLine">
+            function <span class="apidocSignatureSpan">columns.</span>ColumnLine
+            <span class="apidocSignatureSpan">(value, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnStream">
+            function <span class="apidocSignatureSpan">columns.</span>ColumnStream
+            <span class="apidocSignatureSpan">(column)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnView">
+            function <span class="apidocSignatureSpan">columns.</span>ColumnView
+            <span class="apidocSignatureSpan">(column)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.MainView">
+            function <span class="apidocSignatureSpan">columns.</span>MainView
+            <span class="apidocSignatureSpan">(columns, mode, print)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.create">
+            function <span class="apidocSignatureSpan">columns.</span>create
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">columns.</span>Column.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">columns.</span>ColumnBuffer.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">columns.</span>ColumnLine.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">columns.</span>ColumnStream.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">columns.</span>ColumnView.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">columns.</span>MainView.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.columns.Column">module columns.Column</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.Column.Column">
+            function <span class="apidocSignatureSpan">columns.</span>Column
+            <span class="apidocSignatureSpan">(columns, name, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.Column.super_">
+            function <span class="apidocSignatureSpan">columns.Column.</span>super_
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.columns.Column.prototype">module columns.Column.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.Column.prototype.addColumn">
+            function <span class="apidocSignatureSpan">columns.Column.prototype.</span>addColumn
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.Column.prototype.clear">
+            function <span class="apidocSignatureSpan">columns.Column.prototype.</span>clear
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.Column.prototype.redraw">
+            function <span class="apidocSignatureSpan">columns.Column.prototype.</span>redraw
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.Column.prototype.remove">
+            function <span class="apidocSignatureSpan">columns.Column.prototype.</span>remove
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.Column.prototype.set">
+            function <span class="apidocSignatureSpan">columns.Column.prototype.</span>set
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.columns.ColumnBuffer">module columns.ColumnBuffer</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnBuffer.ColumnBuffer">
+            function <span class="apidocSignatureSpan">columns.</span>ColumnBuffer
+            <span class="apidocSignatureSpan">(column)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.columns.ColumnBuffer.prototype">module columns.ColumnBuffer.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnBuffer.prototype.add">
+            function <span class="apidocSignatureSpan">columns.ColumnBuffer.prototype.</span>add
+            <span class="apidocSignatureSpan">(line)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnBuffer.prototype.addGeneric">
+            function <span class="apidocSignatureSpan">columns.ColumnBuffer.prototype.</span>addGeneric
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnBuffer.prototype.backspace">
+            function <span class="apidocSignatureSpan">columns.ColumnBuffer.prototype.</span>backspace
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnBuffer.prototype.line">
+            function <span class="apidocSignatureSpan">columns.ColumnBuffer.prototype.</span>line
+            <span class="apidocSignatureSpan">(num)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnBuffer.prototype.newLine">
+            function <span class="apidocSignatureSpan">columns.ColumnBuffer.prototype.</span>newLine
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnBuffer.prototype.reset">
+            function <span class="apidocSignatureSpan">columns.ColumnBuffer.prototype.</span>reset
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnBuffer.prototype.writeToCurrentLine">
+            function <span class="apidocSignatureSpan">columns.ColumnBuffer.prototype.</span>writeToCurrentLine
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.columns.ColumnLine">module columns.ColumnLine</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnLine.ColumnLine">
+            function <span class="apidocSignatureSpan">columns.</span>ColumnLine
+            <span class="apidocSignatureSpan">(value, opts)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.columns.ColumnLine.prototype">module columns.ColumnLine.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnLine.prototype.backspace">
+            function <span class="apidocSignatureSpan">columns.ColumnLine.prototype.</span>backspace
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnLine.prototype.buildCodes">
+            function <span class="apidocSignatureSpan">columns.ColumnLine.prototype.</span>buildCodes
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnLine.prototype.insertCodes">
+            function <span class="apidocSignatureSpan">columns.ColumnLine.prototype.</span>insertCodes
+            <span class="apidocSignatureSpan">(line, offset)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnLine.prototype.replaceTabs">
+            function <span class="apidocSignatureSpan">columns.ColumnLine.prototype.</span>replaceTabs
+            <span class="apidocSignatureSpan">(line)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnLine.prototype.toString">
+            function <span class="apidocSignatureSpan">columns.ColumnLine.prototype.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnLine.prototype.trimmed">
+            function <span class="apidocSignatureSpan">columns.ColumnLine.prototype.</span>trimmed
+            <span class="apidocSignatureSpan">(to_length, wrap)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnLine.prototype.trimmedNoWrap">
+            function <span class="apidocSignatureSpan">columns.ColumnLine.prototype.</span>trimmedNoWrap
+            <span class="apidocSignatureSpan">(to_length)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnLine.prototype.trimmedWrap">
+            function <span class="apidocSignatureSpan">columns.ColumnLine.prototype.</span>trimmedWrap
+            <span class="apidocSignatureSpan">(to_length, raw_line, offset, total_length, lineArray)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnLine.prototype.valueOf">
+            function <span class="apidocSignatureSpan">columns.ColumnLine.prototype.</span>valueOf
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnLine.prototype.write">
+            function <span class="apidocSignatureSpan">columns.ColumnLine.prototype.</span>write
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.columns.ColumnStream">module columns.ColumnStream</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnStream.ColumnStream">
+            function <span class="apidocSignatureSpan">columns.</span>ColumnStream
+            <span class="apidocSignatureSpan">(column)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.columns.ColumnStream.prototype">module columns.ColumnStream.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnStream.prototype.parseData">
+            function <span class="apidocSignatureSpan">columns.ColumnStream.prototype.</span>parseData
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.columns.ColumnView">module columns.ColumnView</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnView.ColumnView">
+            function <span class="apidocSignatureSpan">columns.</span>ColumnView
+            <span class="apidocSignatureSpan">(column)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.columns.ColumnView.prototype">module columns.ColumnView.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnView.prototype.addToBufferCache">
+            function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>addToBufferCache
+            <span class="apidocSignatureSpan">(line)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnView.prototype.checkOverflow">
+            function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>checkOverflow
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnView.prototype.clear">
+            function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>clear
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnView.prototype.clearCurrentLine">
+            function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>clearCurrentLine
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnView.prototype.clearFrom">
+            function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>clearFrom
+            <span class="apidocSignatureSpan">(from, num_lines)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnView.prototype.clearToOverflow">
+            function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>clearToOverflow
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnView.prototype.dataCursorPos">
+            function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>dataCursorPos
+            <span class="apidocSignatureSpan">(y)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnView.prototype.fillDown">
+            function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>fillDown
+            <span class="apidocSignatureSpan">(from, to, buffer_line)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnView.prototype.fillUp">
+            function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>fillUp
+            <span class="apidocSignatureSpan">(from, to, buffer_line)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnView.prototype.fillUpUsingBuffer">
+            function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>fillUpUsingBuffer
+            <span class="apidocSignatureSpan">(from, to)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnView.prototype.printBufferLine">
+            function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>printBufferLine
+            <span class="apidocSignatureSpan">(buffer_index)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnView.prototype.printLine">
+            function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>printLine
+            <span class="apidocSignatureSpan">(line)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnView.prototype.printLineDirect">
+            function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>printLineDirect
+            <span class="apidocSignatureSpan">(line)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnView.prototype.printNewLines">
+            function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>printNewLines
+            <span class="apidocSignatureSpan">(num_lines)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnView.prototype.rebuildEndDisplayCache">
+            function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>rebuildEndDisplayCache
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnView.prototype.rebuildFrontDisplayCache">
+            function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>rebuildFrontDisplayCache
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnView.prototype.recalculate">
+            function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>recalculate
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnView.prototype.redraw">
+            function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>redraw
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnView.prototype.redrawAll">
+            function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>redrawAll
+            <span class="apidocSignatureSpan">(separator)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnView.prototype.redrawCurrentLine">
+            function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>redrawCurrentLine
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnView.prototype.redrawCurrentLineFlow">
+            function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>redrawCurrentLineFlow
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnView.prototype.redrawDataEffeciently">
+            function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>redrawDataEffeciently
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnView.prototype.redrawDataFlow">
+            function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>redrawDataFlow
+            <span class="apidocSignatureSpan">(new_lines)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnView.prototype.redrawHeader">
+            function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>redrawHeader
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnView.prototype.redrawSeparator">
+            function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>redrawSeparator
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.ColumnView.prototype.renderBuffer">
+            function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>renderBuffer
+            <span class="apidocSignatureSpan">(new_lines)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.columns.MainView">module columns.MainView</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.MainView.MainView">
+            function <span class="apidocSignatureSpan">columns.</span>MainView
+            <span class="apidocSignatureSpan">(columns, mode, print)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.columns.MainView.prototype">module columns.MainView.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.MainView.prototype.buildColumnArray">
+            function <span class="apidocSignatureSpan">columns.MainView.prototype.</span>buildColumnArray
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.MainView.prototype.calculateColumnPositions">
+            function <span class="apidocSignatureSpan">columns.MainView.prototype.</span>calculateColumnPositions
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.MainView.prototype.calculateColumnWidths">
+            function <span class="apidocSignatureSpan">columns.MainView.prototype.</span>calculateColumnWidths
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.MainView.prototype.redraw">
+            function <span class="apidocSignatureSpan">columns.MainView.prototype.</span>redraw
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.MainView.prototype.refresh">
+            function <span class="apidocSignatureSpan">columns.MainView.prototype.</span>refresh
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.columns.create">module columns.create</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.columns.create.create">
+            function <span class="apidocSignatureSpan">columns.</span>create
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.columns" id="apidoc.module.columns">module columns</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.columns.Column" id="apidoc.element.columns.Column">
+        function <span class="apidocSignatureSpan">columns.</span>Column
+        <span class="apidocSignatureSpan">(columns, name, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Column(columns, name, opts) {
+
+    opts = opts || {};
+    this.opts = opts;
+
+    PassThrough.call(this);
+
+    this.name = name;
+    this.columns = columns;
+
+    this.buffer = new ColumnBuffer(this);
+    this.stream = new ColumnStream(this);
+    this.view = new ColumnView(this);
+
+    this.displaying = true;
+
+    if (opts.width) {
+        this.width = opts.width;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnBuffer" id="apidoc.element.columns.ColumnBuffer">
+        function <span class="apidocSignatureSpan">columns.</span>ColumnBuffer
+        <span class="apidocSignatureSpan">(column)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ColumnBuffer(column) {
+
+    this.column = column;
+    this.max_size = column.columns.opts.maximum_buffer;
+
+    this.new_lines = 0;
+    this.current_modified = false;
+
+    this.data = column.opts.raw === true ? [new ColumnLine(&#x27;&#x27;, {tab_size: column.columns.opts.tab_size})] : [];
+
+    this.offset = 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnLine" id="apidoc.element.columns.ColumnLine">
+        function <span class="apidocSignatureSpan">columns.</span>ColumnLine
+        <span class="apidocSignatureSpan">(value, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ColumnLine(value, opts) {
+
+    opts = opts || {};
+
+    this._value = value || &#x27;&#x27;;
+
+    this.tab_size = opts.tab_size || 2;
+    this.legacy_state = opts.legacy !== undefined ? opts.legacy.ansi_state : new ANSIState();
+    this.ansi_state = new ANSIState(this.legacy_state);
+    this.wrap_state = null;
+
+    this.codes = {};
+    this.codeList = [];
+
+    Object.defineProperty(this, &#x27;length&#x27;, {
+        get: function() {
+            return this.value.length;
+        }
+    });
+
+    this.buildCodes();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnStream" id="apidoc.element.columns.ColumnStream">
+        function <span class="apidocSignatureSpan">columns.</span>ColumnStream
+        <span class="apidocSignatureSpan">(column)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ColumnStream(column) {
+
+    var _this = this;
+    var new_lines = 0;
+
+    this.column = column;
+    this.column.setEncoding(&#x27;utf8&#x27;);
+
+    this.buffer = column.buffer;
+
+    this.newline_waiting = false;
+    this.linesync = 1;
+
+    if (column.opts.raw) {
+        this.column.on(&#x27;data&#x27;, function(data) {
+            _this.parseData(cleanData(data));
+        });
+    } else {
+        this.column.pipe(split()).on(&#x27;data&#x27;, function(data) {
+            _this.buffer.newLine(cleanData(data));
+        });
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnView" id="apidoc.element.columns.ColumnView">
+        function <span class="apidocSignatureSpan">columns.</span>ColumnView
+        <span class="apidocSignatureSpan">(column)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ColumnView(column) {
+
+    var _this = this,
+        buffer = column.buffer,
+        buffer_new_lines = buffer.new_lines,
+        new_lines = 0,
+        threshold = true;
+
+    this.column = column;
+    this.stream = column.stream;
+    this.buffer = buffer;
+
+    this.main = column.columns;
+
+    this.display_cache = [];
+    this.buffer_cache = [];
+
+    this.wrap = column.opts.wrap;
+    this.flow = this.main.opts.flow;
+
+    this.cursorY = 0;
+    this.current_line = column.opts.raw === true ? 0 : -1;
+    this.current_line_height = column.opts.raw === true ? 1 : 0;
+
+    this.x = 0;
+    this.data_top = 0;
+    this.data_height = 0;
+
+    this.header_separator = new Array(this.main.view.width).join(this.main.header_separator);
+
+    heartbeats.heart(&#x27;view_refresh&#x27;).createEvent(1, function(heartbeat, last) {
+
+        if (column.displaying === true) {
+
+            buffer_new_lines = buffer.new_lines;
+            threshold = (buffer_new_lines &#x3c; _this.data_height || buffer_new_lines - new_lines &#x3c; 1000 || buffer_new_lines === new_lines
+) ? true : false;
+            new_lines = buffer_new_lines;
+
+            if (threshold === true) {
+                _this.renderBuffer(buffer_new_lines);
+                buffer.reset();
+            }
+        }
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.MainView" id="apidoc.element.columns.MainView">
+        function <span class="apidocSignatureSpan">columns.</span>MainView
+        <span class="apidocSignatureSpan">(columns, mode, print)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function MainView(columns, mode, print) {
+
+    this.columns = columns;
+
+    this.tty_columns = process.stdout.columns;
+    this.tty_rows = process.stdout.rows;
+    this.empty_line = empty_line;
+
+    trackStdout(this);
+    displayMode(this, mode, print);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.create" id="apidoc.element.columns.create">
+        function <span class="apidocSignatureSpan">columns.</span>create
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function create(opts) {
+    return new Columns(opts);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+## Basic Usage
+
+### Include and Create your Columns
+
+```javascript
+var columns = require(&#x27;columns&#x27;).<span class="apidocCodeKeywordSpan">create</span>()
+```
+
+### Add Columns
+Add columns to your program. Give them a name, and set options for them.
+
+```javascript
+var a = columns.addColumn(&#x27;Column A&#x27;)
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.columns.Column" id="apidoc.module.columns.Column">module columns.Column</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.columns.Column.Column" id="apidoc.element.columns.Column.Column">
+        function <span class="apidocSignatureSpan">columns.</span>Column
+        <span class="apidocSignatureSpan">(columns, name, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Column(columns, name, opts) {
+
+    opts = opts || {};
+    this.opts = opts;
+
+    PassThrough.call(this);
+
+    this.name = name;
+    this.columns = columns;
+
+    this.buffer = new ColumnBuffer(this);
+    this.stream = new ColumnStream(this);
+    this.view = new ColumnView(this);
+
+    this.displaying = true;
+
+    if (opts.width) {
+        this.width = opts.width;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.Column.super_" id="apidoc.element.columns.Column.super_">
+        function <span class="apidocSignatureSpan">columns.Column.</span>super_
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function PassThrough(options) {
+  if (!(this instanceof PassThrough))
+    return new PassThrough(options);
+
+  Transform.call(this, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.columns.Column.prototype" id="apidoc.module.columns.Column.prototype">module columns.Column.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.columns.Column.prototype.addColumn" id="apidoc.element.columns.Column.prototype.addColumn">
+        function <span class="apidocSignatureSpan">columns.Column.prototype.</span>addColumn
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addColumn = function () {
+    this.columns.addColumn.apply(null, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var columns = require(&#x27;columns&#x27;).create()
+```
+
+### Add Columns
+Add columns to your program. Give them a name, and set options for them.
+
+```javascript
+var a = columns.<span class="apidocCodeKeywordSpan">addColumn</span>(&#x27;Column A&#x27;)
+// OR
+columns.addColumn(&#x27;Column B&#x27;)
+// OR
+var c = columns.addColumn(&#x27;Column C&#x27;, {raw : true}) // character feed
+```
+
+### Write or Pipe Text to Your Columns!
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.Column.prototype.clear" id="apidoc.element.columns.Column.prototype.clear">
+        function <span class="apidocSignatureSpan">columns.Column.prototype.</span>clear
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">clear = function () {
+    this.stream.data = [&#x27;&#x27;];
+    this.view.clear();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```javascript
+setInterval(function(){
+    column.write(&#x27;The Time: &#x27; + new Date() + &#x27;\n&#x27;)
+}, 1000)
+```
+
+### column.<span class="apidocCodeKeywordSpan">clear</span>()
+Clear the column&#x27;s buffer and view.
+
+```javascript
+column.clear()
+```
+
+### column.remove()
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.Column.prototype.redraw" id="apidoc.element.columns.Column.prototype.redraw">
+        function <span class="apidocSignatureSpan">columns.Column.prototype.</span>redraw
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">redraw = function () {
+    this.view.redrawAll();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+this.rebuildFrontDisplayCache();
+this.rebuildEndDisplayCache();
+
+if (separator === true) {
+    this.redrawSeparator();
+}
+
+this.<span class="apidocCodeKeywordSpan">redraw</span>();
+};
+
+ColumnView.prototype.redraw = function() {
+
+if (this.buffer.size &#x3e; 0) {
+    if (this.flow === true) {
+        this.redrawDataFlow(0);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.Column.prototype.remove" id="apidoc.element.columns.Column.prototype.remove">
+        function <span class="apidocSignatureSpan">columns.Column.prototype.</span>remove
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">remove = function () {
+    this.columns.removeColumn(this.id);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+### column.clear()
+Clear the column&#x27;s buffer and view.
+
+```javascript
+column.clear()
+```
+
+### column.<span class="apidocCodeKeywordSpan">remove</span>()
+Remove the column and its view from the column set.
+
+```javascript
+column.remove()
+```
+
+### column[setting]
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.Column.prototype.set" id="apidoc.element.columns.Column.prototype.set">
+        function <span class="apidocSignatureSpan">columns.Column.prototype.</span>set
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">set = function (opts) {
+    for (var option in opts) {
+        this[option] = opts[option];
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.columns.ColumnBuffer" id="apidoc.module.columns.ColumnBuffer">module columns.ColumnBuffer</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnBuffer.ColumnBuffer" id="apidoc.element.columns.ColumnBuffer.ColumnBuffer">
+        function <span class="apidocSignatureSpan">columns.</span>ColumnBuffer
+        <span class="apidocSignatureSpan">(column)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ColumnBuffer(column) {
+
+    this.column = column;
+    this.max_size = column.columns.opts.maximum_buffer;
+
+    this.new_lines = 0;
+    this.current_modified = false;
+
+    this.data = column.opts.raw === true ? [new ColumnLine(&#x27;&#x27;, {tab_size: column.columns.opts.tab_size})] : [];
+
+    this.offset = 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.columns.ColumnBuffer.prototype" id="apidoc.module.columns.ColumnBuffer.prototype">module columns.ColumnBuffer.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnBuffer.prototype.add" id="apidoc.element.columns.ColumnBuffer.prototype.add">
+        function <span class="apidocSignatureSpan">columns.ColumnBuffer.prototype.</span>add
+        <span class="apidocSignatureSpan">(line)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">add = function (line) {
+
+    this.data.push(new ColumnLine(line, {
+        legacy: this.data[this.data.length - 1],
+        tab_size: this.column.columns.opts.tab_size
+    }));
+
+    this.new_lines++;
+
+    if (this.data.length &#x3e; this.max_size) {
+        this.data.shift();
+        this.offset++;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if (this.data.length &#x3e; this.max_size) {
+        this.data.shift();
+        this.offset++;
+    }
+};
+
+ColumnBuffer.prototype.newLine = function(data) {
+    this.<span class="apidocCodeKeywordSpan">add</span>(data || &#x27;&#x27;);
+};
+
+ColumnBuffer.prototype.backspace = function() {
+    this.data[this.data.length - 1].backspace();
+};
+
+ColumnBuffer.prototype.addGeneric = function(data) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnBuffer.prototype.addGeneric" id="apidoc.element.columns.ColumnBuffer.prototype.addGeneric">
+        function <span class="apidocSignatureSpan">columns.ColumnBuffer.prototype.</span>addGeneric
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addGeneric = function (data) {
+
+    var dataSplit = data.split(/\n/);
+
+    this.data[this.data.length - 1].write(dataSplit.shift());
+
+    for (var i = 0; i &#x3c; dataSplit.length; i++) {
+        this.add(dataSplit[i]);
+    }
+
+    return dataSplit.length;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    } else {
+
+if (data === &#x27;\n&#x27;) {
+    this.buffer.newLine(&#x27;&#x27;);
+} else if (data === &#x27;\b&#x27;) {
+    this.buffer.backspace();
+} else if (data.match(/\n/) !== null) {
+    this.buffer.<span class="apidocCodeKeywordSpan">addGeneric</span>(data);
+} else if (data === &#x27;&#x27;) {
+
+} else {
+    if (this.newline_waiting === true) {
+        this.buffer.newLine(&#x27;&#x27;);
+    }
+    this.buffer.writeToCurrentLine(data);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnBuffer.prototype.backspace" id="apidoc.element.columns.ColumnBuffer.prototype.backspace">
+        function <span class="apidocSignatureSpan">columns.ColumnBuffer.prototype.</span>backspace
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">backspace = function () {
+    this.data[this.data.length - 1].backspace();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+ColumnBuffer.prototype.newLine = function(data) {
+this.add(data || &#x27;&#x27;);
+};
+
+ColumnBuffer.prototype.backspace = function() {
+this.data[this.data.length - 1].<span class="apidocCodeKeywordSpan">backspace</span>();
+};
+
+ColumnBuffer.prototype.addGeneric = function(data) {
+
+var dataSplit = data.split(/\n/);
+
+this.data[this.data.length - 1].write(dataSplit.shift());
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnBuffer.prototype.line" id="apidoc.element.columns.ColumnBuffer.prototype.line">
+        function <span class="apidocSignatureSpan">columns.ColumnBuffer.prototype.</span>line
+        <span class="apidocSignatureSpan">(num)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">line = function (num) {
+
+    if (num - this.offset &#x3c; 0) {
+        return new ColumnLine(new Array(400).join(&#x27;-&#x27;));
+    } else {
+        return this.data[num - this.offset];
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+ColumnView.prototype.rebuildFrontDisplayCache = function() {
+
+    this.display_cache = [];
+
+    for (var i = 0; i &#x3c; this.current_line; i++) {
+        this.display_cache = this.display_cache.concat(this.buffer.<span class="apidocCodeKeywordSpan">line</span>(i).trimmed(this
+.width, this.wrap));
+        if (this.display_cache.length &#x3e; this.data_height) {
+            break;
+        }
+    }
+};
+
+ColumnView.prototype.rebuildEndDisplayCache = function() {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnBuffer.prototype.newLine" id="apidoc.element.columns.ColumnBuffer.prototype.newLine">
+        function <span class="apidocSignatureSpan">columns.ColumnBuffer.prototype.</span>newLine
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">newLine = function (data) {
+    this.add(data || &#x27;&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+    if (column.opts.raw) {
+        this.column.on(&#x27;data&#x27;, function(data) {
+            _this.parseData(cleanData(data));
+        });
+    } else {
+        this.column.pipe(split()).on(&#x27;data&#x27;, function(data) {
+            _this.buffer.<span class="apidocCodeKeywordSpan">newLine</span>(cleanData(data));
+        });
+    }
+}
+
+
+// column stream prototype methods
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnBuffer.prototype.reset" id="apidoc.element.columns.ColumnBuffer.prototype.reset">
+        function <span class="apidocSignatureSpan">columns.ColumnBuffer.prototype.</span>reset
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reset = function () {
+    this.new_lines = 0;
+    this.current_modified = false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+            buffer_new_lines = buffer.new_lines;
+            threshold = (buffer_new_lines &#x3c; _this.data_height || buffer_new_lines - new_lines &#x3c; 1000 || buffer_new_lines
+ === new_lines) ? true : false;
+            new_lines = buffer_new_lines;
+
+            if (threshold === true) {
+                _this.renderBuffer(buffer_new_lines);
+                buffer.<span class="apidocCodeKeywordSpan">reset</span>();
+            }
+        }
+    });
+}
+
+
+// column view prototype methods
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnBuffer.prototype.writeToCurrentLine" id="apidoc.element.columns.ColumnBuffer.prototype.writeToCurrentLine">
+        function <span class="apidocSignatureSpan">columns.ColumnBuffer.prototype.</span>writeToCurrentLine
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">writeToCurrentLine = function (data) {
+    this.data[this.data.length - 1].write(data);
+    this.current_modified = true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+            this.buffer.addGeneric(data);
+        } else if (data === &#x27;&#x27;) {
+
+        } else {
+            if (this.newline_waiting === true) {
+                this.buffer.newLine(&#x27;&#x27;);
+            }
+            this.buffer.<span class="apidocCodeKeywordSpan">writeToCurrentLine</span>(data);
+        }
+
+        this.newline_waiting = false;
+    }
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.columns.ColumnLine" id="apidoc.module.columns.ColumnLine">module columns.ColumnLine</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnLine.ColumnLine" id="apidoc.element.columns.ColumnLine.ColumnLine">
+        function <span class="apidocSignatureSpan">columns.</span>ColumnLine
+        <span class="apidocSignatureSpan">(value, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ColumnLine(value, opts) {
+
+    opts = opts || {};
+
+    this._value = value || &#x27;&#x27;;
+
+    this.tab_size = opts.tab_size || 2;
+    this.legacy_state = opts.legacy !== undefined ? opts.legacy.ansi_state : new ANSIState();
+    this.ansi_state = new ANSIState(this.legacy_state);
+    this.wrap_state = null;
+
+    this.codes = {};
+    this.codeList = [];
+
+    Object.defineProperty(this, &#x27;length&#x27;, {
+        get: function() {
+            return this.value.length;
+        }
+    });
+
+    this.buildCodes();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.columns.ColumnLine.prototype" id="apidoc.module.columns.ColumnLine.prototype">module columns.ColumnLine.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnLine.prototype.backspace" id="apidoc.element.columns.ColumnLine.prototype.backspace">
+        function <span class="apidocSignatureSpan">columns.ColumnLine.prototype.</span>backspace
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">backspace = function () {
+    this.value = this.slice(0, -2);
+    return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+ColumnBuffer.prototype.newLine = function(data) {
+this.add(data || &#x27;&#x27;);
+};
+
+ColumnBuffer.prototype.backspace = function() {
+this.data[this.data.length - 1].<span class="apidocCodeKeywordSpan">backspace</span>();
+};
+
+ColumnBuffer.prototype.addGeneric = function(data) {
+
+var dataSplit = data.split(/\n/);
+
+this.data[this.data.length - 1].write(dataSplit.shift());
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnLine.prototype.buildCodes" id="apidoc.element.columns.ColumnLine.prototype.buildCodes">
+        function <span class="apidocSignatureSpan">columns.ColumnLine.prototype.</span>buildCodes
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">buildCodes = function () {
+
+    var idx = 0,
+        line = this._value,
+        codes = this.match(color_regex),
+        codeArray = [],
+        code, codeObj, indexOfZero;
+
+    if (codes !== null) {
+
+        for (var i = 0; i &#x3c; codes.length; i++) {
+
+            idx = line.indexOf(codes[i]);
+            code = codes[i];
+
+            codeObj = {
+                code: code,
+                idx: idx
+            };
+
+            codeArray[i] = codeObj;
+            line = spliceSlice(line, idx, code.length);
+        }
+    }
+
+    this.ansi_state.updateWithArray(codes);
+
+    this.codes = {
+        codeArray: codeArray,
+        strippedLine: line
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+    Object.defineProperty(this, &#x27;length&#x27;, {
+        get: function() {
+            return this.value.length;
+        }
+    });
+
+    this.<span class="apidocCodeKeywordSpan">buildCodes</span>();
+}
+
+ColumnLine.prototype = new String;
+
+ColumnLine.prototype.toString = ColumnLine.prototype.valueOf = function() {
+    return this._value;
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnLine.prototype.insertCodes" id="apidoc.element.columns.ColumnLine.prototype.insertCodes">
+        function <span class="apidocSignatureSpan">columns.ColumnLine.prototype.</span>insertCodes
+        <span class="apidocSignatureSpan">(line, offset)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">insertCodes = function (line, offset) {
+
+    var codes = this.codes.codeArray,
+        length = line.length,
+        state = [],
+        code, idx;
+
+    if (offset === 0) {
+        this.wrap_state = new ANSIState(this.legacy_state);
+    }
+
+    for (var i = codes.length - 1; i &#x3e;= 0; i--) {
+        idx = codes[i].idx;
+
+        if (idx &#x3c; length + offset &#x26;&#x26; idx &#x3e;= offset) {
+            code = codes[i].code;
+            state.unshift(code);
+            line = spliceSlice(line, idx - offset, 0, code);
+        }
+    }
+
+    line = this.wrap_state.code + line;
+    this.wrap_state.updateWithArray(state);
+
+    return line + &#x27;\u001b[0m&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+while (truncated_width &#x3e; to_length) {
+    i++;
+    truncated = line.substring(0, to_length - i);
+    truncated_width = width(truncated);
+}
+
+truncated = this.<span class="apidocCodeKeywordSpan">insertCodes</span>(truncated, 0);
+
+return [truncated];
+};
+
+ColumnLine.prototype.trimmedWrap = function(to_length, raw_line, offset, total_length, lineArray) {
+
+lineArray = lineArray === undefined ? [] : lineArray;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnLine.prototype.replaceTabs" id="apidoc.element.columns.ColumnLine.prototype.replaceTabs">
+        function <span class="apidocSignatureSpan">columns.ColumnLine.prototype.</span>replaceTabs
+        <span class="apidocSignatureSpan">(line)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">replaceTabs = function (line) {
+
+    var j = 0,
+        tab_size = this.tab_size;
+
+    for (var i = 0; i &#x3c; line.length; i++) {
+        if (line[i] === &#x27;\t&#x27;) line = spliceSlice(line, i, 1, &#x27;         &#x27;.slice(0, tab_size - (j % tab_size)));
+        else if (line[i] === &#x27;\r&#x27;) line = spliceSlice(line, i, 1, &#x27;&#x27;);
+        j += width(line[i]);
+    }
+
+    return line;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    return this.trimmedNoWrap(to_length);
+}
+};
+
+ColumnLine.prototype.trimmedNoWrap = function(to_length) {
+
+var i = 0,
+    line = (this.<span class="apidocCodeKeywordSpan">replaceTabs</span>(this.codes.strippedLine) + MainView.empty_line).substring
+(0, to_length),
+    truncated = line.substring(0, to_length),
+    truncated_width = width(truncated);
+
+while (truncated_width &#x3e; to_length) {
+    i++;
+    truncated = line.substring(0, to_length - i);
+    truncated_width = width(truncated);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnLine.prototype.toString" id="apidoc.element.columns.ColumnLine.prototype.toString">
+        function <span class="apidocSignatureSpan">columns.ColumnLine.prototype.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return this._value;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        opts = name;
+        name = undefined;
+    }
+
+    opts = opts || {};
+    opts.header = opts.header !== undefined ? opts.header : name;
+
+    name = name || &#x27;column_&#x27; + (Math.random()).<span class="apidocCodeKeywordSpan">toString</span>(36) + idCount++;
+    this.columns[name] = new Column(this, name, opts);
+    this.view.refresh();
+
+    return this.columns[name];
+};
+
+Columns.prototype.removeColumn = function(name) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnLine.prototype.trimmed" id="apidoc.element.columns.ColumnLine.prototype.trimmed">
+        function <span class="apidocSignatureSpan">columns.ColumnLine.prototype.</span>trimmed
+        <span class="apidocSignatureSpan">(to_length, wrap)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">trimmed = function (to_length, wrap) {
+
+    if (wrap === true) {
+        return this.trimmedWrap(to_length);
+    } else {
+        return this.trimmedNoWrap(to_length);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+};
+
+ColumnView.prototype.redrawHeader = function() {
+
+if (this.column.header) {
+    cursorPos(this.x, this.main.margin.top + 0);
+    writeToScreen(new ColumnLine(this.column.header).<span class="apidocCodeKeywordSpan">trimmed</span>(this.width)[0]);
+
+
+    if (this.main.header_separator) {
+        cursorPos(this.x, this.main.margin.top + 1);
+        writeToScreen(this.header_separator.substring(0, this.width));
+    }
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnLine.prototype.trimmedNoWrap" id="apidoc.element.columns.ColumnLine.prototype.trimmedNoWrap">
+        function <span class="apidocSignatureSpan">columns.ColumnLine.prototype.</span>trimmedNoWrap
+        <span class="apidocSignatureSpan">(to_length)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">trimmedNoWrap = function (to_length) {
+
+    var i = 0,
+        line = (this.replaceTabs(this.codes.strippedLine) + MainView.empty_line).substring(0, to_length),
+        truncated = line.substring(0, to_length),
+        truncated_width = width(truncated);
+
+    while (truncated_width &#x3e; to_length) {
+        i++;
+        truncated = line.substring(0, to_length - i);
+        truncated_width = width(truncated);
+    }
+
+    truncated = this.insertCodes(truncated, 0);
+
+    return [truncated];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+ColumnLine.prototype.trimmed = function(to_length, wrap) {
+
+if (wrap === true) {
+    return this.trimmedWrap(to_length);
+} else {
+    return this.<span class="apidocCodeKeywordSpan">trimmedNoWrap</span>(to_length);
+}
+};
+
+ColumnLine.prototype.trimmedNoWrap = function(to_length) {
+
+var i = 0,
+    line = (this.replaceTabs(this.codes.strippedLine) + MainView.empty_line).substring(0, to_length),
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnLine.prototype.trimmedWrap" id="apidoc.element.columns.ColumnLine.prototype.trimmedWrap">
+        function <span class="apidocSignatureSpan">columns.ColumnLine.prototype.</span>trimmedWrap
+        <span class="apidocSignatureSpan">(to_length, raw_line, offset, total_length, lineArray)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">trimmedWrap = function (to_length, raw_line, offset, total_length, lineArray) {
+
+    lineArray = lineArray === undefined ? [] : lineArray;
+    offset = offset === undefined ? 0 : offset;
+    raw_line = raw_line || this.replaceTabs(this.codes.strippedLine);
+    total_length = total_length === undefined ? raw_line.length : total_length;
+
+    var i = 0,
+        line = raw_line + MainView.empty_line,
+        truncated = line.substring(offset, offset + to_length),
+        truncated_width = width(truncated);
+
+    while (truncated_width &#x3e; to_length) {
+        i++;
+        truncated = line.substring(offset, offset + to_length - i);
+        truncated_width = width(truncated);
+    }
+
+    for (var new_offset = offset + to_length - i; new_offset &#x3e;= offset; new_offset--) {
+        if ((line[new_offset - 1] !== &#x27; &#x27; &#x26;&#x26; line[new_offset] === &#x27; &#x27;) || (line[new_offset - 1] === &#x27; &#x27; &#x26;&#x26; line[new_offset] !== &#x27; &#x27;))
+break;
+    }
+
+    if (new_offset &#x3e; offset) {
+        truncated = line.substring(offset, new_offset);
+        truncated_width = width(truncated);
+        while (line[new_offset] === &#x27; &#x27;) {
+            new_offset++;
+        }
+    } else {
+        new_offset = offset + to_length - i;
+    }
+
+    lineArray.push(this.insertCodes(truncated, offset) + MainView.empty_line.substring(0, to_length - truncated_width));
+
+    if (new_offset &#x3c; total_length) {
+        this.trimmedWrap(to_length, raw_line, new_offset, total_length, lineArray);
+    }
+
+    return lineArray;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    return this;
+};
+
+
+ColumnLine.prototype.trimmed = function(to_length, wrap) {
+
+    if (wrap === true) {
+        return this.<span class="apidocCodeKeywordSpan">trimmedWrap</span>(to_length);
+    } else {
+        return this.trimmedNoWrap(to_length);
+    }
+};
+
+ColumnLine.prototype.trimmedNoWrap = function(to_length) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnLine.prototype.valueOf" id="apidoc.element.columns.ColumnLine.prototype.valueOf">
+        function <span class="apidocSignatureSpan">columns.ColumnLine.prototype.</span>valueOf
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">valueOf = function () {
+    return this._value;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnLine.prototype.write" id="apidoc.element.columns.ColumnLine.prototype.write">
+        function <span class="apidocSignatureSpan">columns.ColumnLine.prototype.</span>write
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">write = function (data) {
+    this.value += data;
+    return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### Write or Pipe Text to Your Columns!
+
+Columns act like any writable-stream does. Just add more to it, by calling the `write` method, or `pipe` from another readable stream
+.
+
+```javascript
+setInterval(function(){
+    a.<span class="apidocCodeKeywordSpan">write</span>((new Date().getSeconds() % 2 === 0) ? &#x27;TICK\n&#x27; : &#x27;TOCK\n&#
+x27;)
+    columns.column(&#x22;Column B&#x22;).write(&#x27;The Time: &#x27; + new Date() + &#x27;\n&#x27;)
+}, 1000)
+
+process.stdin.setRawMode(true)
+process.stdin.pipe(c)
+```
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.columns.ColumnStream" id="apidoc.module.columns.ColumnStream">module columns.ColumnStream</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnStream.ColumnStream" id="apidoc.element.columns.ColumnStream.ColumnStream">
+        function <span class="apidocSignatureSpan">columns.</span>ColumnStream
+        <span class="apidocSignatureSpan">(column)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ColumnStream(column) {
+
+    var _this = this;
+    var new_lines = 0;
+
+    this.column = column;
+    this.column.setEncoding(&#x27;utf8&#x27;);
+
+    this.buffer = column.buffer;
+
+    this.newline_waiting = false;
+    this.linesync = 1;
+
+    if (column.opts.raw) {
+        this.column.on(&#x27;data&#x27;, function(data) {
+            _this.parseData(cleanData(data));
+        });
+    } else {
+        this.column.pipe(split()).on(&#x27;data&#x27;, function(data) {
+            _this.buffer.newLine(cleanData(data));
+        });
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.columns.ColumnStream.prototype" id="apidoc.module.columns.ColumnStream.prototype">module columns.ColumnStream.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnStream.prototype.parseData" id="apidoc.element.columns.ColumnStream.prototype.parseData">
+        function <span class="apidocSignatureSpan">columns.ColumnStream.prototype.</span>parseData
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parseData = function (data) {
+
+    if (data === &#x27;\r&#x27;) {
+        if (this.newline_waiting === true) {
+            this.buffer.newLine(&#x27;&#x27;);
+        }
+        this.newline_waiting = true;
+    } else {
+
+        if (data === &#x27;\n&#x27;) {
+            this.buffer.newLine(&#x27;&#x27;);
+        } else if (data === &#x27;\b&#x27;) {
+            this.buffer.backspace();
+        } else if (data.match(/\n/) !== null) {
+            this.buffer.addGeneric(data);
+        } else if (data === &#x27;&#x27;) {
+
+        } else {
+            if (this.newline_waiting === true) {
+                this.buffer.newLine(&#x27;&#x27;);
+            }
+            this.buffer.writeToCurrentLine(data);
+        }
+
+        this.newline_waiting = false;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    this.buffer = column.buffer;
+
+    this.newline_waiting = false;
+    this.linesync = 1;
+
+    if (column.opts.raw) {
+        this.column.on(&#x27;data&#x27;, function(data) {
+            _this.<span class="apidocCodeKeywordSpan">parseData</span>(cleanData(data));
+        });
+    } else {
+        this.column.pipe(split()).on(&#x27;data&#x27;, function(data) {
+            _this.buffer.newLine(cleanData(data));
+        });
+    }
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.columns.ColumnView" id="apidoc.module.columns.ColumnView">module columns.ColumnView</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnView.ColumnView" id="apidoc.element.columns.ColumnView.ColumnView">
+        function <span class="apidocSignatureSpan">columns.</span>ColumnView
+        <span class="apidocSignatureSpan">(column)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ColumnView(column) {
+
+    var _this = this,
+        buffer = column.buffer,
+        buffer_new_lines = buffer.new_lines,
+        new_lines = 0,
+        threshold = true;
+
+    this.column = column;
+    this.stream = column.stream;
+    this.buffer = buffer;
+
+    this.main = column.columns;
+
+    this.display_cache = [];
+    this.buffer_cache = [];
+
+    this.wrap = column.opts.wrap;
+    this.flow = this.main.opts.flow;
+
+    this.cursorY = 0;
+    this.current_line = column.opts.raw === true ? 0 : -1;
+    this.current_line_height = column.opts.raw === true ? 1 : 0;
+
+    this.x = 0;
+    this.data_top = 0;
+    this.data_height = 0;
+
+    this.header_separator = new Array(this.main.view.width).join(this.main.header_separator);
+
+    heartbeats.heart(&#x27;view_refresh&#x27;).createEvent(1, function(heartbeat, last) {
+
+        if (column.displaying === true) {
+
+            buffer_new_lines = buffer.new_lines;
+            threshold = (buffer_new_lines &#x3c; _this.data_height || buffer_new_lines - new_lines &#x3c; 1000 || buffer_new_lines === new_lines
+) ? true : false;
+            new_lines = buffer_new_lines;
+
+            if (threshold === true) {
+                _this.renderBuffer(buffer_new_lines);
+                buffer.reset();
+            }
+        }
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.columns.ColumnView.prototype" id="apidoc.module.columns.ColumnView.prototype">module columns.ColumnView.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnView.prototype.addToBufferCache" id="apidoc.element.columns.ColumnView.prototype.addToBufferCache">
+        function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>addToBufferCache
+        <span class="apidocSignatureSpan">(line)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addToBufferCache = function (line) {
+
+    this.buffer_cache.unshift(line);
+
+    if (this.buffer_cache.length &#x3e; this.data_height) {
+        this.buffer_cache.pop();
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+ColumnView.prototype.printLine = function(line) {
+
+if (this.flow === false) {
+    this.checkOverflow();
+}
+
+this.<span class="apidocCodeKeywordSpan">addToBufferCache</span>(line);
+this.printLineDirect(line);
+};
+
+ColumnView.prototype.printLineDirect = function(line) {
+
+this.dataCursorPos(this.cursorY);
+writeToScreen(line);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnView.prototype.checkOverflow" id="apidoc.element.columns.ColumnView.prototype.checkOverflow">
+        function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>checkOverflow
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">checkOverflow = function () {
+
+    if (this.cursorY + 1 &#x3e; this.data_height) {
+        this.clearToOverflow();
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        this.printLine(line_array[i]);
+    }
+};
+
+ColumnView.prototype.printLine = function(line) {
+
+    if (this.flow === false) {
+        this.<span class="apidocCodeKeywordSpan">checkOverflow</span>();
+    }
+
+    this.addToBufferCache(line);
+    this.printLineDirect(line);
+};
+
+ColumnView.prototype.printLineDirect = function(line) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnView.prototype.clear" id="apidoc.element.columns.ColumnView.prototype.clear">
+        function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>clear
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">clear = function () {
+
+    var blank_line = this.main.view.empty_line.substring(0, this.width);
+
+    this.cursorY = 0;
+    for (var i = 0; i &#x3c; this.data_height; i++) {
+        this.printLineDirect(blank_line);
+    }
+    this.cursorY = 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```javascript
+setInterval(function(){
+    column.write(&#x27;The Time: &#x27; + new Date() + &#x27;\n&#x27;)
+}, 1000)
+```
+
+### column.<span class="apidocCodeKeywordSpan">clear</span>()
+Clear the column&#x27;s buffer and view.
+
+```javascript
+column.clear()
+```
+
+### column.remove()
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnView.prototype.clearCurrentLine" id="apidoc.element.columns.ColumnView.prototype.clearCurrentLine">
+        function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>clearCurrentLine
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">clearCurrentLine = function () {
+    this.clearFrom(this.cursorY, this.current_line_height);
+    for (var i = 0; i &#x3c; this.current_line_height; i++) {
+        this.buffer_cache.shift();
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+this.clearFrom(this.cursorY, this.current_line_height);
+for (var i = 0; i &#x3c; this.current_line_height; i++) {
+    this.buffer_cache.shift();
+}
+};
+
+ColumnView.prototype.redrawCurrentLine = function() {
+this.<span class="apidocCodeKeywordSpan">clearCurrentLine</span>();
+this.printBufferLine(this.current_line);
+};
+
+ColumnView.prototype.redrawCurrentLineFlow = function() {
+
+var line_array = this.buffer.line(this.current_line).trimmed(this.width, this.wrap);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnView.prototype.clearFrom" id="apidoc.element.columns.ColumnView.prototype.clearFrom">
+        function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>clearFrom
+        <span class="apidocSignatureSpan">(from, num_lines)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">clearFrom = function (from, num_lines) {
+
+    var blank_line = this.main.view.empty_line.substring(0, this.width);
+
+    for (var i = 0; i &#x3c; num_lines; i++) {
+        this.cursorY = from - i;
+        this.printLineDirect(blank_line);
+    }
+    this.cursorY = from - num_lines;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+for (var i = 0; i &#x3c; line_array.length; i++) {
+    this.printLine(line_array[i]);
+}
+};
+
+ColumnView.prototype.clearCurrentLine = function() {
+this.<span class="apidocCodeKeywordSpan">clearFrom</span>(this.cursorY, this.current_line_height);
+for (var i = 0; i &#x3c; this.current_line_height; i++) {
+    this.buffer_cache.shift();
+}
+};
+
+ColumnView.prototype.redrawCurrentLine = function() {
+this.clearCurrentLine();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnView.prototype.clearToOverflow" id="apidoc.element.columns.ColumnView.prototype.clearToOverflow">
+        function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>clearToOverflow
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">clearToOverflow = function () {
+    this.clear();
+    this.fillUpUsingBuffer(this.main.overflow, 0);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        this.fillUp(this.data_height - 1, 0, this.buffer.size - 1);
+    }
+};
+
+ColumnView.prototype.redrawDataEffeciently = function() {
+
+    if (this.buffer_cache.length &#x3e; this.data_height) {
+        this.<span class="apidocCodeKeywordSpan">clearToOverflow</span>();
+    } else {
+        this.clear();
+        this.fillUpUsingBuffer(this.buffer_cache.length, 0);
+    }
+};
+
+ColumnView.prototype.renderBuffer = function(new_lines) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnView.prototype.dataCursorPos" id="apidoc.element.columns.ColumnView.prototype.dataCursorPos">
+        function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>dataCursorPos
+        <span class="apidocSignatureSpan">(y)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">dataCursorPos = function (y) {
+    cursorPos(this.x, this.cursorY + this.data_top);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+this.addToBufferCache(line);
+this.printLineDirect(line);
+};
+
+ColumnView.prototype.printLineDirect = function(line) {
+
+this.<span class="apidocCodeKeywordSpan">dataCursorPos</span>(this.cursorY);
+writeToScreen(line);
+this.cursorY++;
+};
+
+ColumnView.prototype.addToBufferCache = function(line) {
+
+this.buffer_cache.unshift(line);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnView.prototype.fillDown" id="apidoc.element.columns.ColumnView.prototype.fillDown">
+        function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>fillDown
+        <span class="apidocSignatureSpan">(from, to, buffer_line)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fillDown = function (from, to, buffer_line) {
+
+    var line_array = this.buffer.line(buffer_line).trimmed(this.width, this.wrap),
+        i = from,
+        j = 0,
+        dest = line_array.length - 1;
+
+    while (i &#x3c;= to) {
+
+        this.cursorY = i;
+        this.printLine(line_array[j], false);
+        j++;
+
+        if (j &#x3e; dest) {
+
+            buffer_line++;
+
+            if (buffer_line &#x3e; this.buffer.size - 1) break;
+
+            line_array = this.buffer.line(buffer_line).trimmed(this.width, this.wrap);
+            j = 0;
+            dest = line_array.length - 1;
+        }
+
+        i++;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+ColumnView.prototype.redrawDataFlow = function(new_lines) {
+
+    this.current_line += new_lines;
+    this.rebuildFrontDisplayCache();
+
+    if (this.display_cache.length &#x3c; this.data_height - 1) {
+        this.<span class="apidocCodeKeywordSpan">fillDown</span>(0, this.data_height - 1, 0);
+    } else {
+        this.fillUp(this.data_height - 1, 0, this.buffer.size - 1);
+    }
+};
+
+ColumnView.prototype.redrawDataEffeciently = function() {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnView.prototype.fillUp" id="apidoc.element.columns.ColumnView.prototype.fillUp">
+        function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>fillUp
+        <span class="apidocSignatureSpan">(from, to, buffer_line)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fillUp = function (from, to, buffer_line) {
+
+    var line_array = this.buffer.line(buffer_line).trimmed(this.width, this.wrap),
+        i = from,
+        j = line_array.length - 1,
+        dest = 0;
+
+
+    while (i &#x3e;= to) {
+
+        this.cursorY = i;
+        this.printLine(line_array[j], false);
+        j--;
+
+        if (j &#x3c; dest) {
+            buffer_line--;
+            line_array = this.buffer.line(buffer_line).trimmed(this.width, this.wrap);
+            j = line_array.length - 1;
+            dest = 0;
+        }
+
+        i--;
+    }
+
+    this.cursorY = from + 1;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+this.current_line += new_lines;
+this.rebuildFrontDisplayCache();
+
+if (this.display_cache.length &#x3c; this.data_height - 1) {
+    this.fillDown(0, this.data_height - 1, 0);
+} else {
+    this.<span class="apidocCodeKeywordSpan">fillUp</span>(this.data_height - 1, 0, this.buffer.size - 1);
+}
+};
+
+ColumnView.prototype.redrawDataEffeciently = function() {
+
+if (this.buffer_cache.length &#x3e; this.data_height) {
+    this.clearToOverflow();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnView.prototype.fillUpUsingBuffer" id="apidoc.element.columns.ColumnView.prototype.fillUpUsingBuffer">
+        function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>fillUpUsingBuffer
+        <span class="apidocSignatureSpan">(from, to)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fillUpUsingBuffer = function (from, to) {
+
+    var length = from - to &#x3e; this.buffer_cache.length ? this.buffer_cache.length : from - to;
+    from = length - to;
+
+    for (var i = 0; i &#x3c; length; i++) {
+        this.cursorY = from - i - 1;
+        this.printLineDirect(this.buffer_cache[i]);
+    }
+
+    this.cursorY = from;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+ColumnView.prototype.redrawDataEffeciently = function() {
+
+if (this.buffer_cache.length &#x3e; this.data_height) {
+    this.clearToOverflow();
+} else {
+    this.clear();
+    this.<span class="apidocCodeKeywordSpan">fillUpUsingBuffer</span>(this.buffer_cache.length, 0);
+}
+};
+
+ColumnView.prototype.renderBuffer = function(new_lines) {
+
+if (this.flow === true) {
+    if (new_lines &#x3e; 0) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnView.prototype.printBufferLine" id="apidoc.element.columns.ColumnView.prototype.printBufferLine">
+        function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>printBufferLine
+        <span class="apidocSignatureSpan">(buffer_index)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">printBufferLine = function (buffer_index) {
+
+    var line_array = this.buffer.line(buffer_index).trimmed(this.width, this.wrap);
+    this.current_line_height = line_array.length;
+
+    for (var i = 0; i &#x3c; line_array.length; i++) {
+        this.printLine(line_array[i]);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+if (num_lines &#x3e; this.data_height) {
+    this.current_line += num_lines;
+    this.fillUp(this.data_height - 1, 0, this.current_line);
+} else {
+    for (var i = 0; i &#x3c; num_lines; i++) {
+        this.current_line++;
+        this.<span class="apidocCodeKeywordSpan">printBufferLine</span>(this.current_line);
+    }
+}
+};
+
+ColumnView.prototype.printBufferLine = function(buffer_index) {
+
+var line_array = this.buffer.line(buffer_index).trimmed(this.width, this.wrap);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnView.prototype.printLine" id="apidoc.element.columns.ColumnView.prototype.printLine">
+        function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>printLine
+        <span class="apidocSignatureSpan">(line)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">printLine = function (line) {
+
+    if (this.flow === false) {
+        this.checkOverflow();
+    }
+
+    this.addToBufferCache(line);
+    this.printLineDirect(line);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+j = line_array.length - 1,
+dest = 0;
+
+
+    while (i &#x3e;= to) {
+
+this.cursorY = i;
+this.<span class="apidocCodeKeywordSpan">printLine</span>(line_array[j], false);
+j--;
+
+if (j &#x3c; dest) {
+    buffer_line--;
+    line_array = this.buffer.line(buffer_line).trimmed(this.width, this.wrap);
+    j = line_array.length - 1;
+    dest = 0;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnView.prototype.printLineDirect" id="apidoc.element.columns.ColumnView.prototype.printLineDirect">
+        function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>printLineDirect
+        <span class="apidocSignatureSpan">(line)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">printLineDirect = function (line) {
+
+    this.dataCursorPos(this.cursorY);
+    writeToScreen(line);
+    this.cursorY++;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ColumnView.prototype.fillUpUsingBuffer = function(from, to) {
+
+    var length = from - to &#x3e; this.buffer_cache.length ? this.buffer_cache.length : from - to;
+    from = length - to;
+
+    for (var i = 0; i &#x3c; length; i++) {
+        this.cursorY = from - i - 1;
+        this.<span class="apidocCodeKeywordSpan">printLineDirect</span>(this.buffer_cache[i]);
+    }
+
+    this.cursorY = from;
+};
+
+ColumnView.prototype.fillUp = function(from, to, buffer_line) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnView.prototype.printNewLines" id="apidoc.element.columns.ColumnView.prototype.printNewLines">
+        function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>printNewLines
+        <span class="apidocSignatureSpan">(num_lines)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">printNewLines = function (num_lines) {
+
+    if (num_lines &#x3e; this.data_height) {
+        this.current_line += num_lines;
+        this.fillUp(this.data_height - 1, 0, this.current_line);
+    } else {
+        for (var i = 0; i &#x3c; num_lines; i++) {
+            this.current_line++;
+            this.printBufferLine(this.current_line);
+        }
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        this.redrawCurrentLineFlow();
+    }
+} else {
+    if (this.buffer.current_modified === true) {
+        this.redrawCurrentLine();
+    }
+    if (new_lines &#x3e; 0) {
+        this.<span class="apidocCodeKeywordSpan">printNewLines</span>(new_lines);
+    }
+}
+};
+
+ColumnView.prototype.rebuildFrontDisplayCache = function() {
+
+this.display_cache = [];
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnView.prototype.rebuildEndDisplayCache" id="apidoc.element.columns.ColumnView.prototype.rebuildEndDisplayCache">
+        function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>rebuildEndDisplayCache
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">rebuildEndDisplayCache = function () {
+
+    this.buffer_cache = [];
+
+    for (var i = this.current_line; i &#x3e;= 0; i--) {
+        this.buffer_cache = this.buffer_cache.concat(this.buffer.line(i).trimmed(this.width, this.wrap).reverse());
+        if (this.buffer_cache.length &#x3e; this.data_height) {
+            break;
+        }
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+ColumnView.prototype.redrawAll = function(separator) {
+
+    this.recalculate();
+    this.redrawHeader();
+    this.rebuildFrontDisplayCache();
+    this.<span class="apidocCodeKeywordSpan">rebuildEndDisplayCache</span>();
+
+    if (separator === true) {
+        this.redrawSeparator();
+    }
+
+    this.redraw();
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnView.prototype.rebuildFrontDisplayCache" id="apidoc.element.columns.ColumnView.prototype.rebuildFrontDisplayCache">
+        function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>rebuildFrontDisplayCache
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">rebuildFrontDisplayCache = function () {
+
+    this.display_cache = [];
+
+    for (var i = 0; i &#x3c; this.current_line; i++) {
+        this.display_cache = this.display_cache.concat(this.buffer.line(i).trimmed(this.width, this.wrap));
+        if (this.display_cache.length &#x3e; this.data_height) {
+            break;
+        }
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+this.header_separator = new Array(this.main.view.width).join(this.main.header_separator);
+};
+
+ColumnView.prototype.redrawAll = function(separator) {
+
+this.recalculate();
+this.redrawHeader();
+this.<span class="apidocCodeKeywordSpan">rebuildFrontDisplayCache</span>();
+this.rebuildEndDisplayCache();
+
+if (separator === true) {
+    this.redrawSeparator();
+}
+
+this.redraw();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnView.prototype.recalculate" id="apidoc.element.columns.ColumnView.prototype.recalculate">
+        function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>recalculate
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">recalculate = function () {
+
+    var headerHeight = (this.column.header ? (this.main.header_separator ? 2 : 1) : 0);
+
+    this.data_height = this.main.view.height - headerHeight;
+    this.data_top = this.main.margin.top + headerHeight;
+
+    this.header_separator = new Array(this.main.view.width).join(this.main.header_separator);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+this.data_top = this.main.margin.top + headerHeight;
+
+this.header_separator = new Array(this.main.view.width).join(this.main.header_separator);
+};
+
+ColumnView.prototype.redrawAll = function(separator) {
+
+this.<span class="apidocCodeKeywordSpan">recalculate</span>();
+this.redrawHeader();
+this.rebuildFrontDisplayCache();
+this.rebuildEndDisplayCache();
+
+if (separator === true) {
+    this.redrawSeparator();
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnView.prototype.redraw" id="apidoc.element.columns.ColumnView.prototype.redraw">
+        function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>redraw
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">redraw = function () {
+
+    if (this.buffer.size &#x3e; 0) {
+        if (this.flow === true) {
+            this.redrawDataFlow(0);
+        } else {
+            this.redrawDataEffeciently();
+        }
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+this.rebuildFrontDisplayCache();
+this.rebuildEndDisplayCache();
+
+if (separator === true) {
+    this.redrawSeparator();
+}
+
+this.<span class="apidocCodeKeywordSpan">redraw</span>();
+};
+
+ColumnView.prototype.redraw = function() {
+
+if (this.buffer.size &#x3e; 0) {
+    if (this.flow === true) {
+        this.redrawDataFlow(0);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnView.prototype.redrawAll" id="apidoc.element.columns.ColumnView.prototype.redrawAll">
+        function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>redrawAll
+        <span class="apidocSignatureSpan">(separator)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">redrawAll = function (separator) {
+
+    this.recalculate();
+    this.redrawHeader();
+    this.rebuildFrontDisplayCache();
+    this.rebuildEndDisplayCache();
+
+    if (separator === true) {
+        this.redrawSeparator();
+    }
+
+    this.redraw();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    }
+});
+
+
+// column prototype methods
+
+Column.prototype.redraw = function() {
+    this.view.<span class="apidocCodeKeywordSpan">redrawAll</span>();
+};
+
+Column.prototype.clear = function() {
+    this.stream.data = [&#x27;&#x27;];
+    this.view.clear();
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnView.prototype.redrawCurrentLine" id="apidoc.element.columns.ColumnView.prototype.redrawCurrentLine">
+        function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>redrawCurrentLine
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">redrawCurrentLine = function () {
+    this.clearCurrentLine();
+    this.printBufferLine(this.current_line);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        if (new_lines &#x3e; 0) {
+            this.redrawDataFlow(new_lines);
+        } else if (this.buffer.current_modified === true) {
+            this.redrawCurrentLineFlow();
+        }
+    } else {
+        if (this.buffer.current_modified === true) {
+            this.<span class="apidocCodeKeywordSpan">redrawCurrentLine</span>();
+        }
+        if (new_lines &#x3e; 0) {
+            this.printNewLines(new_lines);
+        }
+    }
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnView.prototype.redrawCurrentLineFlow" id="apidoc.element.columns.ColumnView.prototype.redrawCurrentLineFlow">
+        function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>redrawCurrentLineFlow
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">redrawCurrentLineFlow = function () {
+
+    var line_array = this.buffer.line(this.current_line).trimmed(this.width, this.wrap);
+
+    if (this.current_line_height &#x3c; line_array.length) {
+        this.redrawDataFlow(0);
+        return;
+    }
+
+    this.clearCurrentLine();
+    this.current_line_height = line_array.length;
+
+    for (var i = 0; i &#x3c; line_array.length; i++) {
+        this.printLine(line_array[i]);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+ColumnView.prototype.renderBuffer = function(new_lines) {
+
+if (this.flow === true) {
+    if (new_lines &#x3e; 0) {
+        this.redrawDataFlow(new_lines);
+    } else if (this.buffer.current_modified === true) {
+        this.<span class="apidocCodeKeywordSpan">redrawCurrentLineFlow</span>();
+    }
+} else {
+    if (this.buffer.current_modified === true) {
+        this.redrawCurrentLine();
+    }
+    if (new_lines &#x3e; 0) {
+        this.printNewLines(new_lines);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnView.prototype.redrawDataEffeciently" id="apidoc.element.columns.ColumnView.prototype.redrawDataEffeciently">
+        function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>redrawDataEffeciently
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">redrawDataEffeciently = function () {
+
+    if (this.buffer_cache.length &#x3e; this.data_height) {
+        this.clearToOverflow();
+    } else {
+        this.clear();
+        this.fillUpUsingBuffer(this.buffer_cache.length, 0);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+ColumnView.prototype.redraw = function() {
+
+if (this.buffer.size &#x3e; 0) {
+    if (this.flow === true) {
+        this.redrawDataFlow(0);
+    } else {
+        this.<span class="apidocCodeKeywordSpan">redrawDataEffeciently</span>();
+    }
+}
+};
+
+ColumnView.prototype.redrawHeader = function() {
+
+if (this.column.header) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnView.prototype.redrawDataFlow" id="apidoc.element.columns.ColumnView.prototype.redrawDataFlow">
+        function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>redrawDataFlow
+        <span class="apidocSignatureSpan">(new_lines)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">redrawDataFlow = function (new_lines) {
+
+    this.current_line += new_lines;
+    this.rebuildFrontDisplayCache();
+
+    if (this.display_cache.length &#x3c; this.data_height - 1) {
+        this.fillDown(0, this.data_height - 1, 0);
+    } else {
+        this.fillUp(this.data_height - 1, 0, this.buffer.size - 1);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    this.redraw();
+};
+
+ColumnView.prototype.redraw = function() {
+
+    if (this.buffer.size &#x3e; 0) {
+        if (this.flow === true) {
+            this.<span class="apidocCodeKeywordSpan">redrawDataFlow</span>(0);
+        } else {
+            this.redrawDataEffeciently();
+        }
+    }
+};
+
+ColumnView.prototype.redrawHeader = function() {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnView.prototype.redrawHeader" id="apidoc.element.columns.ColumnView.prototype.redrawHeader">
+        function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>redrawHeader
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">redrawHeader = function () {
+
+    if (this.column.header) {
+        cursorPos(this.x, this.main.margin.top + 0);
+        writeToScreen(new ColumnLine(this.column.header).trimmed(this.width)[0]);
+
+
+        if (this.main.header_separator) {
+            cursorPos(this.x, this.main.margin.top + 1);
+            writeToScreen(this.header_separator.substring(0, this.width));
+        }
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Object.defineProperty(Column.prototype, &#x27;header&#x27;, {
+    get: function() {
+        return this.opts.header;
+    },
+    set: function(header) {
+        this.opts.header = header;
+        this.view.<span class="apidocCodeKeywordSpan">redrawHeader</span>();
+    }
+});
+
+
+// column prototype methods
+
+Column.prototype.redraw = function() {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnView.prototype.redrawSeparator" id="apidoc.element.columns.ColumnView.prototype.redrawSeparator">
+        function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>redrawSeparator
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">redrawSeparator = function () {
+
+    var column_separator = this.main.column_separator;
+
+    if (column_separator) {
+        var x = this.x - column_separator.length;
+
+        for (var i = 0; i &#x3c; this.main.view.height; i++) {
+            cursorPos(x, this.main.margin.top + i);
+            writeToScreen(column_separator);
+        }
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+    this.recalculate();
+    this.redrawHeader();
+    this.rebuildFrontDisplayCache();
+    this.rebuildEndDisplayCache();
+
+    if (separator === true) {
+        this.<span class="apidocCodeKeywordSpan">redrawSeparator</span>();
+    }
+
+    this.redraw();
+};
+
+ColumnView.prototype.redraw = function() {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.ColumnView.prototype.renderBuffer" id="apidoc.element.columns.ColumnView.prototype.renderBuffer">
+        function <span class="apidocSignatureSpan">columns.ColumnView.prototype.</span>renderBuffer
+        <span class="apidocSignatureSpan">(new_lines)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">renderBuffer = function (new_lines) {
+
+    if (this.flow === true) {
+        if (new_lines &#x3e; 0) {
+            this.redrawDataFlow(new_lines);
+        } else if (this.buffer.current_modified === true) {
+            this.redrawCurrentLineFlow();
+        }
+    } else {
+        if (this.buffer.current_modified === true) {
+            this.redrawCurrentLine();
+        }
+        if (new_lines &#x3e; 0) {
+            this.printNewLines(new_lines);
+        }
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        if (column.displaying === true) {
+
+            buffer_new_lines = buffer.new_lines;
+            threshold = (buffer_new_lines &#x3c; _this.data_height || buffer_new_lines - new_lines &#x3c; 1000 || buffer_new_lines
+ === new_lines) ? true : false;
+            new_lines = buffer_new_lines;
+
+            if (threshold === true) {
+                _this.<span class="apidocCodeKeywordSpan">renderBuffer</span>(buffer_new_lines);
+                buffer.reset();
+            }
+        }
+    });
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.columns.MainView" id="apidoc.module.columns.MainView">module columns.MainView</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.columns.MainView.MainView" id="apidoc.element.columns.MainView.MainView">
+        function <span class="apidocSignatureSpan">columns.</span>MainView
+        <span class="apidocSignatureSpan">(columns, mode, print)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function MainView(columns, mode, print) {
+
+    this.columns = columns;
+
+    this.tty_columns = process.stdout.columns;
+    this.tty_rows = process.stdout.rows;
+    this.empty_line = empty_line;
+
+    trackStdout(this);
+    displayMode(this, mode, print);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.columns.MainView.prototype" id="apidoc.module.columns.MainView.prototype">module columns.MainView.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.columns.MainView.prototype.buildColumnArray" id="apidoc.element.columns.MainView.prototype.buildColumnArray">
+        function <span class="apidocSignatureSpan">columns.MainView.prototype.</span>buildColumnArray
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">buildColumnArray = function () {
+
+    this.column_view_array = [];
+
+    for (var column_name in this.columns.columns) {
+        if (this.columns.columns[column_name] !== undefined) {
+            this.columns.columns[column_name].displaying = false;
+            this.column_view_array.push(this.columns.columns[column_name]);
+        }
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+MainView.prototype.refresh = function() {
+
+this.tty_columns = process.stdout.columns;
+this.tty_rows = process.stdout.rows;
+this.empty_line = new Array(this.tty_columns + 1).join(&#x27; &#x27;);
+process.stdout.write(&#x27;\033[2J&#x27;);
+
+this.<span class="apidocCodeKeywordSpan">buildColumnArray</span>();
+this.calculateColumnWidths();
+};
+
+MainView.prototype.buildColumnArray = function() {
+
+this.column_view_array = [];
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.MainView.prototype.calculateColumnPositions" id="apidoc.element.columns.MainView.prototype.calculateColumnPositions">
+        function <span class="apidocSignatureSpan">columns.MainView.prototype.</span>calculateColumnPositions
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">calculateColumnPositions = function () {
+
+    if (this.column_view_array.length &#x3e; 0) {
+
+        this.column_view_array[0].view.x = this.columns.margin.left;
+
+        for (var i = 1; i &#x3c; this.column_view_array.length; i++) {
+            this.column_view_array[i].view.x = this.column_view_array[i - 1].view.x + this.column_view_array[i - 1].view.width +
+this.columns.column_separator.length;
+        }
+
+        this.redraw();
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+extra = available_width - (percentage_column_extra * percentage_columns.length);
+for (i = 0; i &#x3c; percentage_columns.length; i++) {
+    percentage_columns[i].view.width = percentage_columns[i].view.width + percentage_column_extra + (extra &#x3e; 0 ? 1 : 0);
+    extra--;
+}
+    }
+
+    this.<span class="apidocCodeKeywordSpan">calculateColumnPositions</span>();
+};
+
+MainView.prototype.calculateColumnPositions = function() {
+
+    if (this.column_view_array.length &#x3e; 0) {
+
+this.column_view_array[0].view.x = this.columns.margin.left;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.MainView.prototype.calculateColumnWidths" id="apidoc.element.columns.MainView.prototype.calculateColumnWidths">
+        function <span class="apidocSignatureSpan">columns.MainView.prototype.</span>calculateColumnWidths
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">calculateColumnWidths = function () {
+
+    var columns = this.columns;
+
+    var column, column_width,
+        separator_size = columns.column_separator.length,
+        total_width = this.width,
+        number_of_column_views = this.column_view_array.length,
+        flex_columns = [],
+        percentage_columns = [],
+        min_width = 5,
+        number_of_flex_columns = 0,
+        flex_column_width,
+        extra,
+        i;
+
+    var available_width = total_width - (separator_size * (number_of_column_views - 1));
+    var main_width = available_width;
+    var separator_percentage = separator_size / total_width;
+    var total_separator_percentage = separator_percentage * (number_of_column_views - 1);
+    var percentage_left = 1 - total_separator_percentage;
+
+    for (i = 0; i &#x3c; this.column_view_array.length; i++) {
+
+        column = this.column_view_array[i];
+        column_width = 0;
+
+        if (column.opts.percentage_width) {
+
+            column_width = Math.floor(column.opts.percentage_width * percentage_left * main_width);
+            column.view.width = column_width;
+            percentage_columns.push(column);
+
+        } else if (column.opts.fixed_width) {
+
+            column_width = column.opts.fixed_width;
+            column.view.width = column_width;
+
+        } else {
+
+            flex_columns.push(column);
+
+        }
+
+        available_width -= column_width;
+    }
+
+    number_of_flex_columns = flex_columns.length;
+
+    if (available_width - (number_of_flex_columns * min_width) &#x3c; 0) {
+        this.column_view_array.pop();
+        this.calculateColumnWidths();
+        return;
+    }
+
+    if (number_of_flex_columns &#x3e; 0) {
+
+        flex_column_width = Math.floor(available_width / number_of_flex_columns);
+        extra = available_width - (flex_column_width * number_of_flex_columns);
+
+        for (i = 0; i &#x3c; number_of_flex_columns; i++) {
+            flex_columns[i].view.width = flex_column_width + (extra &#x3e; 0 ? 1 : 0);
+            extra--;
+        }
+
+    } else if (percentage_columns.length &#x3e; 0) {
+
+        var percentage_column_extra = Math.floor(available_width / percentage_columns.length);
+        extra = available_width - (percentage_column_extra * percentage_columns.length);
+        for (i = 0; i &#x3c; percentage_columns.length; i++) {
+            percentage_columns[i].view.width = percentage_columns[i].view.width + percentage_column_extra + (extra &#x3e; 0 ? 1 : 0);
+            extra--;
+        }
+    }
+
+    this.calculateColumnPositions();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+this.tty_columns = process.stdout.columns;
+this.tty_rows = process.stdout.rows;
+this.empty_line = new Array(this.tty_columns + 1).join(&#x27; &#x27;);
+process.stdout.write(&#x27;\033[2J&#x27;);
+
+this.buildColumnArray();
+this.<span class="apidocCodeKeywordSpan">calculateColumnWidths</span>();
+};
+
+MainView.prototype.buildColumnArray = function() {
+
+this.column_view_array = [];
+
+for (var column_name in this.columns.columns) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.MainView.prototype.redraw" id="apidoc.element.columns.MainView.prototype.redraw">
+        function <span class="apidocSignatureSpan">columns.MainView.prototype.</span>redraw
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">redraw = function () {
+
+    for (var i = 0; i &#x3c; this.column_view_array.length; i++) {
+        this.column_view_array[i].displaying = true;
+        this.column_view_array[i].view.redrawAll(i !== 0 ? true : false);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+this.rebuildFrontDisplayCache();
+this.rebuildEndDisplayCache();
+
+if (separator === true) {
+    this.redrawSeparator();
+}
+
+this.<span class="apidocCodeKeywordSpan">redraw</span>();
+};
+
+ColumnView.prototype.redraw = function() {
+
+if (this.buffer.size &#x3e; 0) {
+    if (this.flow === true) {
+        this.redrawDataFlow(0);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.columns.MainView.prototype.refresh" id="apidoc.element.columns.MainView.prototype.refresh">
+        function <span class="apidocSignatureSpan">columns.MainView.prototype.</span>refresh
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">refresh = function () {
+
+    this.tty_columns = process.stdout.columns;
+    this.tty_rows = process.stdout.rows;
+    this.empty_line = new Array(this.tty_columns + 1).join(&#x27; &#x27;);
+    process.stdout.write(&#x27;\033[2J&#x27;);
+
+    this.buildColumnArray();
+    this.calculateColumnWidths();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Object.defineProperty(Columns.prototype, &#x27;margin&#x27;, {
+get: function() {
+    return this.opts.margin;
+},
+set: function(margin) {
+    this.opts.margin = margin;
+    this.view.<span class="apidocCodeKeywordSpan">refresh</span>();
+}
+});
+
+Object.defineProperty(Columns.prototype, &#x27;header_separator&#x27;, {
+get: function() {
+    return this.opts.header_separator !== undefined ? this.opts.header_separator : &#x27;_&#x27;;
+},
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.columns.create" id="apidoc.module.columns.create">module columns.create</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.columns.create.create" id="apidoc.element.columns.create.create">
+        function <span class="apidocSignatureSpan">columns.</span>create
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function create(opts) {
+    return new Columns(opts);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+## Basic Usage
+
+### Include and Create your Columns
+
+```javascript
+var columns = require(&#x27;columns&#x27;).<span class="apidocCodeKeywordSpan">create</span>()
+```
+
+### Add Columns
+Add columns to your program. Give them a name, and set options for them.
+
+```javascript
+var a = columns.addColumn(&#x27;Column A&#x27;)
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
