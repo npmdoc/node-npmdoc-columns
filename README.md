@@ -1,4 +1,7 @@
-# api documentation for  [columns (v0.8.0)](https://github.com/arjunmehta/node-columns)  [![npm package](https://img.shields.io/npm/v/npmdoc-columns.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-columns) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-columns.svg)](https://travis-ci.org/npmdoc/node-npmdoc-columns)
+# npmdoc-columns
+
+#### api documentation for  [columns (v0.8.0)](https://github.com/arjunmehta/node-columns)  [![npm package](https://img.shields.io/npm/v/npmdoc-columns.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-columns) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-columns.svg)](https://travis-ci.org/npmdoc/node-npmdoc-columns)
+
 #### Stream your text streams into streams of column streams.
 
 [![NPM](https://nodei.co/npm/columns.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/columns)
