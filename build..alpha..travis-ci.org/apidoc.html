@@ -117,15 +117,6 @@
 
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.columns.create">
-            function <span class="apidocSignatureSpan">columns.</span>create
-            <span class="apidocSignatureSpan">(opts)</span>
-            </a>
-
-        </li>
-
-        <li>
-
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">columns.</span>Column.prototype</span>
 
         </li>
@@ -759,19 +750,6 @@
 
     </ol></li>
 
-    <li class="apidocModuleLi"><a href="#apidoc.module.columns.create">module columns.create</a><ol>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.columns.create.create">
-            function <span class="apidocSignatureSpan">columns.</span>create
-            <span class="apidocSignatureSpan">(opts)</span>
-            </a>
-
-        </li>
-
-    </ol></li>
-
 </ol></div>
 
 <div class="apidocSectionDiv">
@@ -980,37 +958,6 @@
     displayMode(this, mode, print);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.columns.create" id="apidoc.element.columns.create">
-        function <span class="apidocSignatureSpan">columns.</span>create
-        <span class="apidocSignatureSpan">(opts)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">function create(opts) {
-    return new Columns(opts);
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-
-
-## Basic Usage
-
-### Include and Create your Columns
-
-```javascript
-var columns = require(&#x27;columns&#x27;).<span class="apidocCodeKeywordSpan">create</span>()
-```
-
-### Add Columns
-Add columns to your program. Give them a name, and set options for them.
-
-```javascript
-var a = columns.addColumn(&#x27;Column A&#x27;)
-...</pre></li>
     </ul>
 
 
@@ -3426,42 +3373,6 @@ Object.defineProperty(Columns.prototype, &#x27;header_separator&#x27;, {
 get: function() {
     return this.opts.header_separator !== undefined ? this.opts.header_separator : &#x27;_&#x27;;
 },
-...</pre></li>
-    </ul>
-
-
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.columns.create" id="apidoc.module.columns.create">module columns.create</a></h1>
-
-
-    <h2>
-        <a href="#apidoc.element.columns.create.create" id="apidoc.element.columns.create.create">
-        function <span class="apidocSignatureSpan">columns.</span>create
-        <span class="apidocSignatureSpan">(opts)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">function create(opts) {
-    return new Columns(opts);
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-
-
-## Basic Usage
-
-### Include and Create your Columns
-
-```javascript
-var columns = require(&#x27;columns&#x27;).<span class="apidocCodeKeywordSpan">create</span>()
-```
-
-### Add Columns
-Add columns to your program. Give them a name, and set options for them.
-
-```javascript
-var a = columns.addColumn(&#x27;Column A&#x27;)
 ...</pre></li>
     </ul>
 
